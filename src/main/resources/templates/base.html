@@ -1,0 +1,93 @@
+<!--Componente Navbar -->
+<div th:fragment="navbar" class="container">
+	<style>
+		nav .navbar-nav li a {
+			color: rgb(255, 255, 255) !important;
+			background-color: rgb(0, 0, 0);
+			border-radius: 10px;
+		}
+
+		nav .navbar-nav li a:hover {
+			color: rgb(255, 255, 128) !important;
+			background-color: rgb(128, 128, 128);
+		}
+
+		nav {
+			border-radius: 10px;
+			border-style: solid;
+			border-color: black;
+		}
+	</style>
+	<nav class="navbar navbar-expand-lg navbar-dark mt-1" style="background-color: rgb(234 231 231);
+			-webkit-box-shadow: 3px 15px 30px 2px rgba(0,0,0,0.72);
+			-moz-box-shadow: 3px 15px 30px 2px rgba(0,0,0,0.72);
+			box-shadow: 3px 15px 30px 2px rgba(0,0,0,0.72);">
+		<div class="container-fluid">
+			<svg fill="#000" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+				xmlns:xlink="http://www.w3.org/1999/xlink" width="80px" height="80px" viewBox="0 0 63.404 63.404"
+				xml:space="preserve">
+				<g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+				<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+				<g id="SVGRepo_iconCarrier">
+					<g>
+						<path
+							d="M51.559,0H30.535h-9.109h-6.073c-3.513,0-6.615,1.778-8.47,4.476c-3.151,1.757-5.312,5.085-5.312,8.941v39.709 c0,5.666,4.611,10.278,10.277,10.278h39.71c5.666,0,10.275-4.612,10.275-10.278v-3.139v-36.57v-3.139 C61.834,4.611,57.225,0,51.559,0z M51.559,61.534h-39.71c-4.259,0-7.75-3.191-8.296-7.304l2.207-0.646 c1.465,3.892,5.195,6.681,9.593,6.681h6.073h9.109h21.024c2.864,0,5.451-1.182,7.317-3.079 C57.438,59.764,54.715,61.534,51.559,61.534z M3.439,13.417c0-1.966,0.708-3.753,1.843-5.187c-0.136,0.663-0.208,1.347-0.208,2.048 v3.31L3.439,14.07V13.417z M10.76,3.25c1.322-0.868,2.896-1.38,4.592-1.38h6.073V3.14v0.935v0.935v53.383h-6.073 c-3.551,0-6.578-2.215-7.808-5.335l3.202-0.938c0.764,1.407,2.237,2.377,3.951,2.377c2.487,0,4.51-2.023,4.51-4.51 s-2.022-4.512-4.51-4.512c-2.489,0-4.511,2.025-4.511,4.512c0,0.116,0.025,0.226,0.035,0.342l-3.149,0.924 c-0.063-0.417-0.129-0.832-0.129-1.264v-9.891l3.803-1.115c0.764,1.407,2.237,2.377,3.951,2.377c2.487,0,4.51-2.021,4.51-4.51 s-2.022-4.511-4.51-4.511c-2.489,0-4.511,2.022-4.511,4.511c0,0.116,0.025,0.226,0.035,0.34l-3.275,0.96V27.252l3.802-1.115 c0.764,1.407,2.238,2.376,3.951,2.376c2.488,0,4.51-2.022,4.51-4.509c0-2.488-2.022-4.511-4.51-4.511 c-2.488,0-4.511,2.023-4.511,4.511c0,0.116,0.025,0.226,0.036,0.341l-3.276,0.959V14.989l3.803-1.115 c0.764,1.407,2.238,2.377,3.951,2.377c2.488,0,4.51-2.022,4.51-4.51c0-2.488-2.022-4.511-4.51-4.511 c-2.489,0-4.511,2.023-4.511,4.511c0,0.116,0.025,0.226,0.035,0.341L6.95,13.041v-2.76c0-1.626,0.486-3.129,1.288-4.419 c0.31-0.5,0.663-0.967,1.067-1.388C9.737,4.011,10.225,3.6,10.76,3.25z M3.439,16.016l1.636-0.481v10.315l-1.636,0.481V16.016z M3.439,28.278l1.636-0.481v10.899l-1.636,0.481V28.278z M14.432,49.089l-2.336,0.684c0.112-1.35,1.217-2.431,2.601-2.431 c1.457,0,2.642,1.188,2.642,2.644c0,1.455-1.188,2.642-2.642,2.642c-0.853,0-1.58-0.437-2.063-1.065l2.327-0.683L14.432,49.089z M14.432,35.949l-2.336,0.685c0.112-1.351,1.217-2.432,2.601-2.432c1.457,0,2.642,1.188,2.642,2.644 c0,1.456-1.188,2.642-2.642,2.642c-0.853,0-1.58-0.436-2.063-1.065l2.327-0.682L14.432,35.949z M14.432,23.104l-2.336,0.684 c0.112-1.352,1.217-2.432,2.601-2.432c1.457,0,2.642,1.188,2.642,2.643c0,1.456-1.188,2.642-2.642,2.642 c-0.853,0-1.58-0.435-2.063-1.065l2.327-0.682L14.432,23.104z M14.432,10.841l-2.336,0.684c0.112-1.351,1.217-2.432,2.601-2.432 c1.457,0,2.642,1.188,2.642,2.643c0,1.455-1.188,2.641-2.642,2.641c-0.853,0-1.58-0.435-2.063-1.065l2.327-0.682L14.432,10.841z M3.439,41.125l1.636-0.48v9.343c0,0.613,0.076,1.209,0.183,1.798l-1.818,0.533V41.125z">
+						</path>
+					</g>
+				</g>
+			</svg>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item" style="margin-right: 10px; margin-left: 10px;">
+						<a class="nav-link" href="/cadastro/aluno">Aluno</a>
+					</li>
+					<li class="nav-item" style="margin-right: 10px;">
+						<a class="nav-link" href="/cadastro/atividadecomplementar">Atividade Complementar</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/cadastro/tipoatividade">Tipo de Atividade</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</div>
+
+<!--ícone com sinal de "mais" -->
+<svg th:fragment="icone-adicionar" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+	class="bi bi-plus-circle" viewBox="0 0 16 16">
+	<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+	<path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+</svg>
+
+<!--ícone de um lapis -->
+<svg th:fragment="icone-editar" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+	class="bi bi-pencil-square" viewBox="0 0 16 16">
+	<path
+		d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+	<path fill-rule="evenodd"
+		d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+</svg>
+
+<!--ícone de uma lixeira -->
+<svg th:fragment="icone-excluir" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+	class="bi bi-trash" viewBox="0 0 16 16">
+	<path
+		d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+	<path fill-rule="evenodd"
+		d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
+</svg>
+
+<!--ícone de seta para direita -->
+<svg th:fragment="icone-seta-direita" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+	class="bi bi-chevron-right" viewBox="0 0 16 16">
+	<path fill-rule="evenodd"
+		d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+</svg>
+
+<!--ícone de seta para esquerda -->
+<svg th:fragment="icone-seta-esquerda" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+	class="bi bi-chevron-left" viewBox="0 0 16 16">
+	<path fill-rule="evenodd"
+		d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+</svg>

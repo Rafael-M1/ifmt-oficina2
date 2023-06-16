@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:bootstrap="http://www.thymeleaf.org/extras/bootstrap5">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <!-- Adicione o link para o arquivo CSS do Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+	<style>
+		body {
+			background-color: rgb(241, 241, 241);
+		}
+	</style>
+</head>
+<body>
+	
+	<div th:replace="~{base :: navbar}"></div>
+    <div class="container mt-5">
+		<div th:if="${param.cadastroSucesso}">
+			<div class="alert alert-info">Cadastrado com sucesso!</div>
+		</div>
+		<div th:if="${param.alterarSucesso}">
+			<div class="alert alert-info">Alteração realizada com sucesso!
+			</div>
+		</div>
+		<div th:if="${param.deletarSucesso}">
+			<div class="alert alert-info">Deleção realizada com sucesso!</div>
+		</div>
+		<div class="card">
+			<div class="card-header d-flex">
+				<h3>Lista de Tipo de Atividade</h3>
+				<a href="/home" class="btn btn-primary ms-auto" type="button">
+					<div th:replace="~{base :: icone-seta-esquerda}" /> Voltar
+				</a>
+			</div>
+
+			<div class="d-grid gap-2 col-12 col-lg-9 mx-auto card-body">
+				<a href="/cadastro/tipoatividade/novo" type="button" class="btn btn-success" style="width: 150px;">
+					<div th:replace="~{base :: icone-adicionar}" />
+					Adicionar Item
+				</a>
+				<table class="table table-hover table-bordered table-responsive"
+					style="overflow: auto; max-height: 10px;">
+					<thead class="table-light">
+						<tr>
+							<th width="10%" scope="col">Id</th>
+							<th width="30%" scope="col">Descrição</th>
+							<th width="30%" scope="col">Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:if="${#lists.isEmpty(tipoatividades)}"> 
+							<td colspan="3">Não há dados.</td>
+						</tr>
+						<tr th:each="tipoAtividadeItem : ${tipoatividades}">
+							<td>
+								<span th:text="${tipoAtividadeItem.tipoAtividadeId}">
+									Id Tipo Atividade
+								</span>
+							</td>
+							<td>
+								<span th:text="${tipoAtividadeItem.descricao}"> Descrição </span>
+							</td>
+							<td>
+								<a th:href="@{/cadastro/tipoatividade/alterar/{id}(id = ${tipoAtividadeItem.tipoAtividadeId})}" type="button"
+									class="btn btn-warning">
+									<div th:replace="~{base :: icone-editar}" /> Editar
+								</a>
+								<button type="button" class="btn btn-danger" data-bs-toggle="modal"
+									th:attr="data-bs-target=${'#modalDeletar' + tipoAtividadeItem.tipoAtividadeId}">
+									<div th:replace="~{base :: icone-excluir}" /> Excluir
+								</button>
+								<div class="modal fade" tabindex="-1" aria-hidden="true"
+									th:attr="id=${'modalDeletar' + tipoAtividadeItem.tipoAtividadeId}, aria-labelledby=${'modalDeletar' + tipoAtividadeItem.tipoAtividadeId}">
+									<div class="modal-dialog modal-dialog-centered">
+										<div class="modal-content">
+											<div class="modal-header">
+												<h5 class="modal-title"
+													th:attr="id=${'modalDeletar' + tipoAtividadeItem.tipoAtividadeId}">
+													Você tem certeza que deseja excluir o seguinte item?
+												</h5>
+												<button type="button" class="btn-close" data-bs-dismiss="modal"
+													aria-label="Close"></button>
+											</div>
+											<div class="modal-body">
+												<h6 th:text="${'Id Tipo Atividade: ' + tipoAtividadeItem.tipoAtividadeId}"></h6>
+												<h6 th:text="${'Descrição: ' + tipoAtividadeItem.descricao}"></h6>
+											</div>
+											<div class="modal-footer">
+												<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+													Cancelar
+												</button>
+												<a th:href="@{/cadastro/tipoatividade/deletar/{id}(id = ${tipoAtividadeItem.tipoAtividadeId})}"
+													type="button" class="btn btn-danger">
+													Excluir
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js" integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ" crossorigin="anonymous"></script>
+</body>
+</html>
